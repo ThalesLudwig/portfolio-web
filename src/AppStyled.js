@@ -84,8 +84,14 @@ export const Chat = styled(ScrollToBottom)`
   flex-direction: column;
   margin-bottom: 10px;
   padding: 10px;
-  overflow-y: auto;
+  overflow-y: hidden;
   height: 500px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const FlagRow = styled.div`
