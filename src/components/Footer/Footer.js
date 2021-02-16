@@ -5,6 +5,8 @@ import twitter from "../../assets/twitter.png";
 import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
 import email from "../../assets/email.png";
+import coffee from "../../assets/coffee.jpeg";
+import instagram from "../../assets/instagram.jpg";
 import localization from "./localization";
 import { useIntl } from "react-intl";
 import {
@@ -24,7 +26,7 @@ const getThemeName = ({ value }, formatMessage) => {
 
 const Footer = ({ onThemeSelection, theme }) => {
   const { formatMessage } = useIntl();
-  
+
   return (
     <Container>
       <Label onClick={onThemeSelection}>
@@ -39,6 +41,12 @@ const Footer = ({ onThemeSelection, theme }) => {
         </Link>
         <Link href="https://www.linkedin.com/in/thalesludwig/" target="blank">
           <SocialIcon icon={linkedin} />
+        </Link>
+        <Link href="https://www.buymeacoffee.com/thalesludwig" target="blank">
+          <SocialIcon icon={coffee} />
+        </Link>
+        <Link href="https://www.instagram.com/thalesludwig/" target="blank">
+          <SocialIcon icon={instagram} />
         </Link>
         <Link href="mailto:thales.ludwig@gmail.com">
           <SocialIcon icon={email} />

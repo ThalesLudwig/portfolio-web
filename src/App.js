@@ -30,6 +30,7 @@ import {
   ProfileWrapper,
   Flag,
   FlagRow,
+  ContainerWrapper,
 } from "./AppStyled";
 
 const printMessages = (messages) => {
@@ -111,98 +112,116 @@ const App = () => {
   return (
     <ThemeProvider theme={selectedTheme ? light : dark}>
       <GlobalStyle />
-      <Container>
-        <CardMain>
-          <form
-            onSubmit={(e) =>
-              submitForm(
-                e,
-                input,
-                setInput,
-                messages,
-                setMessages,
-                setIsLoading
-              )
-            }
-          >
-            <FlagRow>
-              <Flag
-                icon={usaFlag}
-                isActive={language === LANG.EN}
-                onClick={() => setLanguage(LANG.EN)}
-              />
-              <Flag
-                icon={brazilFlag}
-                isActive={language === LANG.BR}
-                onClick={() => setLanguage(LANG.BR)}
-              />
-            </FlagRow>
-            <Chat debug={false}>
-              {printMessages(messages)}
-              <>{isLoading && <Message {...loadingMessage} />}</>
-            </Chat>
-            <InputWrapper>
-              <Input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder={formatMessage(localization.askMeAnything)}
-              />
-              <GoButtonWrapper>
-                <Button type="submit" isActive={input.trim().length > 0}>
-                  {formatMessage(localization.send)}
-                </Button>
-              </GoButtonWrapper>
-            </InputWrapper>
-            <SuggestionsWrapper>
-              <Pill
-                key="education"
-                text={formatMessage(localization.education)}
-                clickable
-                onClick={() => setInput(`${input} Education`)}
-              />
-              <Pill
-                key="career"
-                text={formatMessage(localization.career)}
-                clickable
-                onClick={() => setInput(`${input} Career`)}
-              />
-              <Pill
-                key="projects"
-                text={formatMessage(localization.projects)}
-                clickable
-                onClick={() => setInput(`${input} Projects`)}
-              />
-              <Pill
-                key="personal"
-                text={formatMessage(localization.personal)}
-                clickable
-                onClick={() => setInput(`${input} Personal`)}
-              />
-              <Pill
-                key="trivia"
-                text={formatMessage(localization.trivia)}
-                clickable
-                onClick={() => setInput(`${input} Trivia`)}
-              />
-              <Pill
-                key="skills"
-                text={formatMessage(localization.skills)}
-                clickable
-                onClick={() => setInput(`${input} Skills`)}
-              />
-              <Pill
-                key="contact"
-                text={formatMessage(localization.contact)}
-                clickable
-                onClick={() => setInput(`${input} Contact`)}
-              />
-            </SuggestionsWrapper>
-          </form>
-        </CardMain>
-        <ProfileWrapper>
-          <CardProfile />
-        </ProfileWrapper>
-      </Container>
+      <ContainerWrapper>
+        <Container>
+          <CardMain>
+            <form
+              onSubmit={(e) =>
+                submitForm(
+                  e,
+                  input,
+                  setInput,
+                  messages,
+                  setMessages,
+                  setIsLoading
+                )
+              }
+            >
+              <FlagRow>
+                <Flag
+                  icon={usaFlag}
+                  isActive={language === LANG.EN}
+                  onClick={() => setLanguage(LANG.EN)}
+                />
+                <Flag
+                  icon={brazilFlag}
+                  isActive={language === LANG.BR}
+                  onClick={() => setLanguage(LANG.BR)}
+                />
+              </FlagRow>
+              <Chat debug={false}>
+                {printMessages(messages)}
+                <>{isLoading && <Message {...loadingMessage} />}</>
+              </Chat>
+              <InputWrapper>
+                <Input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder={formatMessage(localization.askMeAnything)}
+                />
+                <GoButtonWrapper>
+                  <Button type="submit" isActive={input.trim().length > 0}>
+                    {formatMessage(localization.send)}
+                  </Button>
+                </GoButtonWrapper>
+              </InputWrapper>
+              <SuggestionsWrapper>
+                <Pill
+                  key="education"
+                  text={formatMessage(localization.education)}
+                  clickable
+                  onClick={() =>
+                    setInput(
+                      `${input} ${formatMessage(localization.education)}`
+                    )
+                  }
+                />
+                <Pill
+                  key="career"
+                  text={formatMessage(localization.career)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.career)}`)
+                  }
+                />
+                <Pill
+                  key="projects"
+                  text={formatMessage(localization.projects)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.projects)}`)
+                  }
+                />
+                <Pill
+                  key="personal"
+                  text={formatMessage(localization.personal)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.personal)}`)
+                  }
+                />
+                <Pill
+                  key="trivia"
+                  text={formatMessage(localization.trivia)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.trivia)}`)
+                  }
+                />
+                <Pill
+                  key="skills"
+                  text={formatMessage(localization.skills)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.skills)}`)
+                  }
+                />
+                <Pill
+                  key="contact"
+                  text={formatMessage(localization.contact)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.contact)}`)
+                  }
+                />
+              </SuggestionsWrapper>
+            </form>
+          </CardMain>
+          <ProfileWrapper>
+            <CardProfile />
+          </ProfileWrapper>
+        </Container>
+      </ContainerWrapper>
       <Footer onThemeSelection={() => setSelectedTheme(!selectedTheme)} />
     </ThemeProvider>
   );

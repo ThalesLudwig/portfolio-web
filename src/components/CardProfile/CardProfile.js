@@ -8,6 +8,7 @@ import {
   Name,
   Bio,
   Pills,
+  MobileImage,
 } from "./CardProfileStyled";
 
 const CardProfile = () => {
@@ -26,6 +27,7 @@ const CardProfile = () => {
         </Pills>
         <Bio>{formatMessage(localization.description)}</Bio>
         <Name>Thales Valentini</Name>
+        <MobileImage />
       </Container>
     </BackgroundImage>
   );

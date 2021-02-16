@@ -46,6 +46,10 @@ export const SocialRow = styled.div`
   width: max-content;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: ${TABLET}) {
+    margin: 10px 0px;
+  }
 `;
 
 export const Link = styled.a`

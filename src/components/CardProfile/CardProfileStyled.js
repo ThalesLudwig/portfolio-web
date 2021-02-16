@@ -35,12 +35,34 @@ export const BackgroundImage = styled.div`
   border-radius: 20px;
 
   @media (max-width: ${DESKTOP_SMALL}) {
-    background-image: url(${profileMobile});
     width: unset;
+    background-image: none;
   }
 
   @media (max-width: ${TABLET}) {
     border-radius: 0px;
+  }
+`;
+
+export const MobileImage = styled.div`
+  background: ${({ theme }) => theme.card};
+  background-image: url(${profileMobile});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-bottom: 100px;
+
+  @media (min-width: ${DESKTOP_SMALL}) {
+    display: none;
+    margin: 0px;
+  }
+
+  @media (max-width: ${TABLET}) {
+    width: 200px;
+    height: 200px;
   }
 `;
 
