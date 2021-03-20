@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import CardProfile from "./components/CardProfile/CardProfile";
@@ -93,14 +93,16 @@ const App = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isShowingSuggestions, setIsShowingSuggestions] = useState(false);
   const { formatMessage } = useIntl();
+  const inputRef = useRef(null);
 
   useEffect(() => {
+    setIsLoading(true);
     const greetingMessages = [
       formatMessage(localization.greetingFirst),
       formatMessage(localization.greetingSecond),
       formatMessage(localization.greetingThird),
     ];
-    setIsLoading(true);
+    inputRef.current.focus();
     setTimeout(() => {
       setMessages(messageParser(greetingMessages));
       setIsLoading(false);
@@ -250,6 +252,7 @@ const App = ({
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={formatMessage(localization.askMeAnything)}
+                  ref={inputRef}
                 />
                 <GoButtonWrapper>
                   <Button type="submit" isActive={input.trim().length > 0}>
