@@ -12,6 +12,8 @@ export const EN_US = {
   "suggestions.trivia": "Trivia",
   "suggestions.skills": "Skills",
   "suggestions.contact": "Contact",
+  "suggestions.technology": "Technology",
+  "suggestions.language": "Languages",
   "greeting.first": "Hi, welcome!",
   "greeting.second": "You're talking to an automated version of me. Cool, isn't it?",
   "greeting.third": "You can interview me as if I were human! :)",

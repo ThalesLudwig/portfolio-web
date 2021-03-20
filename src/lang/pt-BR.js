@@ -12,6 +12,8 @@ export const PT_BR = {
   "suggestions.trivia": "Curiosidades",
   "suggestions.skills": "Habilidades",
   "suggestions.contact": "Contato",
+  "suggestions.technology": "Tecnologia",
+  "suggestions.language": "Idiomas",
   "greeting.first": "Olá, seja bem-vindo!",
   "greeting.second": "Você está conversando com uma versão automatizada de mim. Legal, não é?",
   "greeting.third": "Pode me entrevistar como se eu fosse humano! :)",

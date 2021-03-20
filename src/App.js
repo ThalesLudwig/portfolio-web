@@ -55,7 +55,8 @@ const submitForm = (
   setInput,
   messageList,
   setMessages,
-  setIsLoading
+  setIsLoading,
+  location,
 ) => {
   event.preventDefault();
   if (text.trim().length > 0) {
@@ -69,10 +70,10 @@ const submitForm = (
     setMessages(messageList.concat(inputMessage));
     setInput("");
     setIsLoading(true);
-    MessageService.errorResponse()
+    MessageService.get(text, location)
       .then((res) => {
-        const message = messageParser(res.data.content);
-        setMessages(messageList.concat(inputMessage).concat(message));
+        const messages = messageParser(res.data);
+        setMessages(messageList.concat(inputMessage).concat(messages));
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
@@ -111,7 +112,7 @@ const App = ({
       <ContainerWrapper>
         <Container>
           <CardMain>
-            <form onSubmit={(e) => submitForm(e, input, setInput, messages, setMessages, setIsLoading)}>
+            <form onSubmit={(e) => submitForm(e, input, setInput, messages, setMessages, setIsLoading, location)}>
               <FlagRow>
                 <Flag icon={usaFlag} isActive={location === LANG.EN} onClick={() => setEnglish()}/>
                 <Flag icon={brazilFlag} isActive={location === LANG.BR} onClick={() => setPortuguese()}/>
@@ -123,7 +124,7 @@ const App = ({
               <InputWrapper>
                 <Input
                   value={input}
-                  onChange={(e) => setInput(e.target)}
+                  onChange={(e) => setInput(e.target.value)}
                   placeholder={formatMessage(localization.askMeAnything)}
                 />
                 <GoButtonWrapper>
@@ -189,6 +190,22 @@ const App = ({
                   clickable
                   onClick={() =>
                     setInput(`${input} ${formatMessage(localization.contact)}`)
+                  }
+                />
+                <Pill
+                  key="technology"
+                  text={formatMessage(localization.technology)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.technology)}`)
+                  }
+                />
+                <Pill
+                  key="language"
+                  text={formatMessage(localization.language)}
+                  clickable
+                  onClick={() =>
+                    setInput(`${input} ${formatMessage(localization.language)}`)
                   }
                 />
               </SuggestionsWrapper>

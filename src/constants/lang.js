@@ -1,6 +1,6 @@
 const LANG = {
-    BR: 'pt',
-    EN: 'en',
+    BR: 'pt-BR',
+    EN: 'en-US',
 };
 
 export default LANG;

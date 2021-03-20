@@ -37,6 +37,14 @@ export default defineMessages({
     id: "suggestions.contact",
     defaultMessage: "Contact",
   },
+  technology: {
+    id: "suggestions.technology",
+    defaultMessage: "Technology",
+  },
+  language: {
+    id: "suggestions.language",
+    defaultMessage: "Language",
+  },
   greetingFirst: {
     id: "greeting.first",
     defaultMessage: "Hi, welcome!",

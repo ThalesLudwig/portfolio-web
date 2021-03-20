@@ -64,6 +64,7 @@ export const MediaIcon = styled.div`
   background-repeat: no-repeat;
   width: 29px;
   height: 29px;
+  min-width: 29px;
   border-radius: 20px;
   margin-right: 7px;
 `;

@@ -5,6 +5,7 @@ import twitter from "../../assets/twitter.png";
 import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
 import email from "../../assets/email.png";
+import playstore from "../../assets/playstore.jpeg";
 import {
   Container,
   Avatar,
@@ -19,14 +20,16 @@ import {
   MediaLink,
 } from "./MessageStyled";
 
-const renderIcon = (media) => {
-  switch (media.type) {
+const renderIcon = ({ media }) => {
+  switch (media) {
     case MEDIA.GITHUB:
       return github;
     case MEDIA.TWITTER:
       return twitter;
     case MEDIA.LINKEDIN:
       return linkedin;
+    case MEDIA.PLAYSTORE:
+      return playstore;
     default:
       return email;
   }
@@ -36,13 +39,13 @@ const renderMedia = (mediaList) => {
   const medias = [];
   mediaList.forEach((m) => {
     medias.push(
-      <MediaLink key={m.id} href={m.link} target="blank">
+      <MediaLink key={m.id} href={m.url} target="blank">
         <MediaCard>
           <MediaTitleTextWrapper>
             <MediaIcon src={renderIcon(m)} />
-            <MediaTitle>{m.title}</MediaTitle>
+            <MediaTitle>{m.name}</MediaTitle>
           </MediaTitleTextWrapper>
-          <MediaText>{m.content}</MediaText>
+          <MediaText>{m.description}</MediaText>
         </MediaCard>
       </MediaLink>
     );
