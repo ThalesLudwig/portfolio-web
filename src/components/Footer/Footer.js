@@ -52,12 +52,14 @@ const Footer = ({ onThemeSelection, theme }) => {
           <SocialIcon icon={email} />
         </Link>
       </SocialRow>
-      <Label>
-        Powered by{" "}
-        <Bold>
-          <Triangle>▼</Triangle>AIDEN
-        </Bold>
-      </Label>
+      <Link href="https://github.com/ThalesLudwig/aiden" target="blank">
+        <Label>
+          Powered by{" "}
+          <Bold>
+            <Triangle>▼</Triangle>AIDEN
+          </Bold>
+        </Label>
+      </Link>
     </Container>
   );
 };

@@ -54,6 +54,8 @@ export const SocialRow = styled.div`
 
 export const Link = styled.a`
   text-decoration: none;
+  display: flex;
+  align-items: center;
 `
 
 export const SocialIcon = styled.div`

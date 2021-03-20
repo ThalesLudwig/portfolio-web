@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import CardProfile from "./components/CardProfile/CardProfile";
 import CardMain from "./components/CardMain/CardMain";
@@ -9,13 +10,11 @@ import Message from "./components/Message/Message";
 import Footer from "./components/Footer/Footer";
 import { setDarkTheme, setLightTheme } from "./config/themeSlice";
 import { setEnglish, setPortuguese } from "./config/locationSlice";
-import store from "./config/store";
 import { dark, light } from "./theme";
 import usaFlag from "./assets/usa_flag.png";
 import brazilFlag from "./assets/brazil_flag.png";
 import LANG from "./constants/lang";
 import { useIntl } from "react-intl";
-import { LANGUAGE } from "./lang";
 import localization from "./localization";
 import MessageService from "./services/messageService";
 import messageParser from "./helpers/messageParser";
@@ -80,23 +79,18 @@ const submitForm = (
   }
 };
 
-const App = () => {
-  const { theme, location } = store.getState();
+const App = ({
+  theme,
+  location,
+  setDarkTheme,
+  setLightTheme,
+  setEnglish,
+  setPortuguese,
+}) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
-  const [selectedTheme, setSelectedTheme] = useState(theme.value);
-  const [language, setLanguage] = useState(location.value);
   const [isLoading, setIsLoading] = useState(false);
   const { formatMessage } = useIntl();
-
-  useEffect(() => {
-    selectedTheme
-      ? store.dispatch(setLightTheme())
-      : store.dispatch(setDarkTheme());
-    language === LANGUAGE.EN_US
-      ? store.dispatch(setEnglish())
-      : store.dispatch(setPortuguese());
-  }, [selectedTheme, language]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -110,34 +104,15 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={selectedTheme ? light : dark}>
+    <ThemeProvider theme={!!theme ? light : dark}>
       <GlobalStyle />
       <ContainerWrapper>
         <Container>
           <CardMain>
-            <form
-              onSubmit={(e) =>
-                submitForm(
-                  e,
-                  input,
-                  setInput,
-                  messages,
-                  setMessages,
-                  setIsLoading
-                )
-              }
-            >
+            <form onSubmit={(e) => submitForm(e, input, setInput, messages, setMessages, setIsLoading)}>
               <FlagRow>
-                <Flag
-                  icon={usaFlag}
-                  isActive={language === LANG.EN}
-                  onClick={() => setLanguage(LANG.EN)}
-                />
-                <Flag
-                  icon={brazilFlag}
-                  isActive={language === LANG.BR}
-                  onClick={() => setLanguage(LANG.BR)}
-                />
+                <Flag icon={usaFlag} isActive={location === LANG.EN} onClick={() => setEnglish()}/>
+                <Flag icon={brazilFlag} isActive={location === LANG.BR} onClick={() => setPortuguese()}/>
               </FlagRow>
               <Chat debug={false}>
                 {printMessages(messages)}
@@ -146,7 +121,7 @@ const App = () => {
               <InputWrapper>
                 <Input
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={(e) => setInput(e.target)}
                   placeholder={formatMessage(localization.askMeAnything)}
                 />
                 <GoButtonWrapper>
@@ -222,9 +197,23 @@ const App = () => {
           </ProfileWrapper>
         </Container>
       </ContainerWrapper>
-      <Footer onThemeSelection={() => setSelectedTheme(!selectedTheme)} />
+      <Footer onThemeSelection={() => (!!theme ? setDarkTheme() : setLightTheme())}/>
     </ThemeProvider>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    theme: state.theme.value,
+    location: state.location.value,
+  };
+};
+
+const mapDispatchToProps = {
+  setDarkTheme,
+  setLightTheme,
+  setEnglish,
+  setPortuguese,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
