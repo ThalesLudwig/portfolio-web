@@ -75,7 +75,7 @@ export const GoButtonWrapper = styled.div`
 export const SuggestionsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 `;
 

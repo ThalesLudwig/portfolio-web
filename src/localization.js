@@ -45,6 +45,10 @@ export default defineMessages({
     id: "suggestions.language",
     defaultMessage: "Language",
   },
+  suggestions: {
+    id: "suggestions.suggestions",
+    defaultMessage: "Suggestions",
+  },
   greetingFirst: {
     id: "greeting.first",
     defaultMessage: "Hi, welcome!",
