@@ -37,4 +37,16 @@ export default defineMessages({
     id: "suggestions.contact",
     defaultMessage: "Contact",
   },
+  greetingFirst: {
+    id: "greeting.first",
+    defaultMessage: "Hi, welcome!",
+  },
+  greetingSecond: {
+    id: "greeting.second",
+    defaultMessage: "You're talking to an automated version of me. Cool, isn't it?",
+  },
+  greetingThird: {
+    id: "greeting.third",
+    defaultMessage: "You can interview me as if I were human! :)",
+  },
 });

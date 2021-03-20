@@ -20,10 +20,10 @@ const CardProfile = () => {
         <Pills>
           <Pill key="js" text="Javascript" isPrimary />
           <Pill key="react" text="React" isPrimary />
-          <Pill key="node" text="NodeJS" isPrimary />
-          <Pill key="vue" text="VueJS" isPrimary />
-          <Pill key="swift" text="Swift" isPrimary />
-          <Pill key="ui" text="UI/UX" isPrimary />
+          <Pill key="node" text="Node" isPrimary />
+          <Pill key="vue" text="Vue" isPrimary />
+          <Pill key="angular" text="Angular" isPrimary />
+          <Pill key="react-native" text="React Native" isPrimary />
         </Pills>
         <Bio>{formatMessage(localization.description)}</Bio>
         <Name>Thales Valentini</Name>

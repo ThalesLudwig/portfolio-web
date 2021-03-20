@@ -93,15 +93,17 @@ const App = ({
   const { formatMessage } = useIntl();
 
   useEffect(() => {
+    const greetingMessages = [
+      formatMessage(localization.greetingFirst),
+      formatMessage(localization.greetingSecond),
+      formatMessage(localization.greetingThird),
+    ];
     setIsLoading(true);
-    MessageService.greeting()
-      .then((res) => {
-        const messages = messageParser(res.data.content);
-        setMessages(messages);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setIsLoading(false));
-  }, []);
+    setTimeout(() => {
+      setMessages(messageParser(greetingMessages));
+      setIsLoading(false);
+    }, 500);
+  }, [location]);
 
   return (
     <ThemeProvider theme={!!theme ? light : dark}>
