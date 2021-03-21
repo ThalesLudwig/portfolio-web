@@ -16,6 +16,6 @@ export const PT_BR = {
   "suggestions.language": "Idiomas",
   "suggestions.suggestions": "Sugestões",
   "greeting.first": "Olá, seja bem-vindo!",
-  "greeting.second": "Você está conversando com uma versão automatizada de mim. Legal, não é?",
+  "greeting.second": "Você está conversando com uma versão (beta) automatizada de mim. Legal, não é?",
   "greeting.third": "Pode me entrevistar como se eu fosse humano! :)",
 };
