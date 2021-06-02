@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import avatar from "../../assets/avatar.jpeg";
-import profile from "../../assets/profile_crop.jpg";
+import profile from "../../assets/profile_anim.jpg";
 
 export const Container = styled.div`
   margin: 5px;
