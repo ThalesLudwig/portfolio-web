@@ -1,3 +1,13 @@
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.scroll-bar {
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-bar::-webkit-scrollbar {
+  display: none;
 }

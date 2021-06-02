@@ -140,7 +140,7 @@ const App = ({
                   onClick={() => setPortuguese()}
                 />
               </FlagRow>
-              <Chat debug={false}>
+              <Chat debug={false} scrollViewClassName='scroll-bar'>
                 {printMessages(messages)}
                 <>{isLoading && <Message {...loadingMessage} />}</>
               </Chat>
