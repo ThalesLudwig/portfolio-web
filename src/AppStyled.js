@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import ScrollToBottom from "react-scroll-to-bottom";
 import { TABLET, DESKTOP_SMALL, MOBILE } from "./constants/screen";
 
 export const GlobalStyle = createGlobalStyle`
@@ -85,12 +84,19 @@ export const SuggestionsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Chat = styled(ScrollToBottom)`
+export const Chat = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   padding: 10px;
   height: 500px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (max-width: ${MOBILE}) {
     height: calc(100vh - 380px);
