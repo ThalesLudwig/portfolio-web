@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import profile from "../../assets/profile.jpg";
 import profileMobile from "../../assets/profile_mobile.jpg";
-import { TABLET, DESKTOP_SMALL } from "../../constants/screen";
+import { DESKTOP_SMALL, MOBILE } from "../../constants/screen";
 
 export const Container = styled.div`
   background-image: linear-gradient(
@@ -14,14 +14,27 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column-reverse;
   padding: 0px 30px;
-  align-items: center;
 
   @media (max-width: ${DESKTOP_SMALL}) {
+    flex-direction: row-reverse;
+    padding: 30px;
     width: unset;
   }
 
-  @media (max-width: ${TABLET}) {
+  @media (max-width: ${MOBILE}) {
     border-radius: 0px;
+    padding: 10px;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  @media (max-width: ${DESKTOP_SMALL}) {
+    align-items: flex-start;
+    margin-left: 30px;
   }
 `;
 
@@ -36,10 +49,11 @@ export const BackgroundImage = styled.div`
 
   @media (max-width: ${DESKTOP_SMALL}) {
     width: unset;
+    height: unset;
     background-image: none;
   }
 
-  @media (max-width: ${TABLET}) {
+  @media (max-width: ${MOBILE}) {
     border-radius: 0px;
   }
 `;
@@ -52,7 +66,7 @@ export const MobileImage = styled.div`
   background-position: center;
   width: 300px;
   height: 300px;
-  border-radius: 50%;
+  border-radius: 20px;
   margin-bottom: 100px;
 
   @media (min-width: ${DESKTOP_SMALL}) {
@@ -60,9 +74,20 @@ export const MobileImage = styled.div`
     margin: 0px;
   }
 
-  @media (max-width: ${TABLET}) {
-    width: 200px;
-    height: 200px;
+  @media (max-width: ${DESKTOP_SMALL}) {
+    width: 150px;
+    height: 150px;
+    min-width: 150px;
+    min-height: 150px;
+    margin-bottom: 0px;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    border-radius: 10px;
   }
 `;
 
@@ -71,6 +96,16 @@ export const Name = styled.div`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+
+  @media (max-width: ${DESKTOP_SMALL}) {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const Bio = styled.div`
@@ -79,6 +114,29 @@ export const Bio = styled.div`
   text-align: center;
   font-weight: 300;
   margin-bottom: 30px;
+
+  @media (max-width: ${DESKTOP_SMALL}) {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+`;
+
+export const SeeSkills = styled.div`
+  display: none;
+  color: ${({ theme }) => theme.primaryText};
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0px;
+  cursor: pointer;
+
+  @media (max-width: ${MOBILE}) {
+    display: flex;
+  }
 `;
 
 export const Pills = styled.div`
@@ -87,4 +145,15 @@ export const Pills = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 30px;
+
+  @media (max-width: ${DESKTOP_SMALL}) {
+    justify-content: flex-start;
+    margin-bottom: 0px;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    display: ${({ shouldDisplay }) => shouldDisplay ? "flex" : "none"};
+    margin-left: -10px;
+    margin-top: 10px;
+  }
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TABLET } from "../../constants/screen";
+import { TABLET, MOBILE } from "../../constants/screen";
 
 export const Container = styled.div`
   background: ${({ theme }) => theme.card};
@@ -12,5 +12,9 @@ export const Container = styled.div`
 
   @media (max-width: ${TABLET}) {
     width: unset;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    border-radius: 0px;
   }
 `;

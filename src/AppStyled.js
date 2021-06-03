@@ -41,6 +41,10 @@ export const ProfileWrapper = styled.div`
     margin-left: 0px;
     margin-bottom: 20px;
   }
+
+  @media (max-width: ${MOBILE}) {
+    margin-bottom: 1px;
+  }
 `;
 
 export const SocialRow = styled.div`

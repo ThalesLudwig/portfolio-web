@@ -9,6 +9,7 @@ export const light = {
   grey: "#ECECEC",
   white: "#FFFFFF",
   input: "#FFFFFF",
+  primaryText: "#8257E6",
 };
 
 export const dark = {
@@ -22,4 +23,5 @@ export const dark = {
   grey: "#383838",
   white: "#FFFFFF",
   input: "#181818",
+  primaryText: "#c2ad5b",
 };

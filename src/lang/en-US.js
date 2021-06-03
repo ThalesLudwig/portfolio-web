@@ -18,4 +18,6 @@ export const EN_US = {
   "greeting.first": "Hi, welcome!",
   "greeting.second": "You're talking to an automated (beta) version of me. Cool, isn't it?",
   "greeting.third": "You can interview me as if I were human! :)",
+  "profile.skills.show": "Show skills",
+  "profile.skills.hide": "Hide skills",
 };
