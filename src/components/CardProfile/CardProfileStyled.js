@@ -55,6 +55,7 @@ export const BackgroundImage = styled.div`
 
   @media (max-width: ${MOBILE}) {
     border-radius: 0px;
+    border-bottom: ${({ theme }) => `2px solid ${theme.background}`};
   }
 `;
 
@@ -152,7 +153,7 @@ export const Pills = styled.div`
   }
 
   @media (max-width: ${MOBILE}) {
-    display: ${({ shouldDisplay }) => shouldDisplay ? "flex" : "none"};
+    display: ${({ shouldDisplay }) => (shouldDisplay ? "flex" : "none")};
     margin-left: -10px;
     margin-top: 10px;
   }

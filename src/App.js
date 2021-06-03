@@ -30,6 +30,7 @@ import {
   Flag,
   FlagRow,
   ContainerWrapper,
+  SuggestionsInputWrapper,
 } from "./AppStyled";
 
 const printMessages = (messages) => {
@@ -140,126 +141,131 @@ const App = ({
                   onClick={() => setPortuguese()}
                 />
               </FlagRow>
-              <Chat debug={false} scrollViewClassName='scroll-bar'>
+              <Chat debug={false} scrollViewClassName="scroll-bar">
                 {printMessages(messages)}
                 <>{isLoading && <Message {...loadingMessage} />}</>
               </Chat>
-              <SuggestionsWrapper>
-                <Pill
-                  key="suggestion"
-                  clickable
-                  text={formatMessage(localization.suggestions)}
-                  isPrimary
-                  onClick={() => setIsShowingSuggestions(!isShowingSuggestions)}
-                />
-                {isShowingSuggestions && (
-                  <>
-                    <Pill
-                      key="education"
-                      text={formatMessage(localization.education)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.education)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="career"
-                      text={formatMessage(localization.career)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.career)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="projects"
-                      text={formatMessage(localization.projects)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.projects)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="personal"
-                      text={formatMessage(localization.personal)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.personal)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="trivia"
-                      text={formatMessage(localization.trivia)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.trivia)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="skills"
-                      text={formatMessage(localization.skills)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.skills)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="contact"
-                      text={formatMessage(localization.contact)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.contact)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="technology"
-                      text={formatMessage(localization.technology)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.technology)}`
-                        )
-                      }
-                    />
-                    <Pill
-                      key="language"
-                      text={formatMessage(localization.language)}
-                      clickable
-                      onClick={() =>
-                        setInput(
-                          `${input} ${formatMessage(localization.language)}`
-                        )
-                      }
-                    />
-                  </>
-                )}
-              </SuggestionsWrapper>
-              <InputWrapper>
-                <Input
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder={formatMessage(localization.askMeAnything)}
-                  ref={inputRef}
-                />
-                <GoButtonWrapper>
-                  <Button type="submit" isActive={input.trim().length > 0}>
-                    {formatMessage(localization.send)}
-                  </Button>
-                </GoButtonWrapper>
-              </InputWrapper>
+
+              <SuggestionsInputWrapper>
+                <SuggestionsWrapper>
+                  <Pill
+                    key="suggestion"
+                    clickable
+                    text={formatMessage(localization.suggestions)}
+                    isPrimary
+                    onClick={() =>
+                      setIsShowingSuggestions(!isShowingSuggestions)
+                    }
+                  />
+                  {isShowingSuggestions && (
+                    <>
+                      <Pill
+                        key="education"
+                        text={formatMessage(localization.education)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.education)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="career"
+                        text={formatMessage(localization.career)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.career)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="projects"
+                        text={formatMessage(localization.projects)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.projects)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="personal"
+                        text={formatMessage(localization.personal)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.personal)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="trivia"
+                        text={formatMessage(localization.trivia)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.trivia)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="skills"
+                        text={formatMessage(localization.skills)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.skills)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="contact"
+                        text={formatMessage(localization.contact)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.contact)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="technology"
+                        text={formatMessage(localization.technology)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.technology)}`
+                          )
+                        }
+                      />
+                      <Pill
+                        key="language"
+                        text={formatMessage(localization.language)}
+                        clickable
+                        onClick={() =>
+                          setInput(
+                            `${input} ${formatMessage(localization.language)}`
+                          )
+                        }
+                      />
+                    </>
+                  )}
+                </SuggestionsWrapper>
+                <InputWrapper>
+                  <Input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder={formatMessage(localization.askMeAnything)}
+                    ref={inputRef}
+                  />
+                  <GoButtonWrapper>
+                    <Button type="submit" isActive={input.trim().length > 0}>
+                      {formatMessage(localization.send)}
+                    </Button>
+                  </GoButtonWrapper>
+                </InputWrapper>
+              </SuggestionsInputWrapper>
             </form>
           </CardMain>
           <ProfileWrapper>
