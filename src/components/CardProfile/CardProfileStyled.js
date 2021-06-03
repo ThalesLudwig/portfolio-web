@@ -24,6 +24,7 @@ export const Container = styled.div`
   @media (max-width: ${MOBILE}) {
     border-radius: 0px;
     padding: 10px;
+    background-image: none;
   }
 `;
 

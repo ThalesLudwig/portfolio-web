@@ -108,7 +108,7 @@ const App = ({
       setMessages(messageParser(greetingMessages));
       setIsLoading(false);
     }, 500);
-  }, [location]);
+  }, [location, formatMessage]);
 
   return (
     <ThemeProvider theme={!!theme ? light : dark}>
