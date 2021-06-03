@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TABLET } from "../../constants/screen";
+import { TABLET, MOBILE } from "../../constants/screen";
 
 export const Container = styled.div`
   background: ${({ theme }) => theme.card};
@@ -11,12 +11,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  @media (max-width: ${TABLET}) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 export const Label = styled.div`
@@ -31,6 +25,25 @@ export const Label = styled.div`
   @media (max-width: ${TABLET}) {
     margin: 10px;
     justify-content: center;
+  }
+`;
+
+export const Aiden = styled.div`
+  font-size: 14px;
+  color: ${({ theme }) => theme.title};
+  cursor: pointer;
+  width: 130px;
+  margin: 0px 20px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: ${TABLET}) {
+    margin: 10px;
+    text-align: center;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    display: none;
   }
 `;
 

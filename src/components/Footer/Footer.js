@@ -17,6 +17,7 @@ import {
   SocialRow,
   Link,
   SocialIcon,
+  Aiden,
 } from "./FooterStyled";
 
 const getThemeName = ({ value }, formatMessage) => {
@@ -53,12 +54,12 @@ const Footer = ({ onThemeSelection, theme }) => {
         </Link>
       </SocialRow>
       <Link href="https://github.com/ThalesLudwig/aiden" target="blank">
-        <Label>
+        <Aiden>
           Powered by{" "}
           <Bold>
             <Triangle>▼</Triangle>AIDEN
           </Bold>
-        </Label>
+        </Aiden>
       </Link>
     </Container>
   );

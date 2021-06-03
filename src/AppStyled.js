@@ -30,7 +30,7 @@ export const Container = styled.div`
 
   @media (max-width: ${TABLET}) {
     padding: 0px;
-    margin-bottom: 165px;
+    margin-bottom: 85px;
   }
 `;
 
