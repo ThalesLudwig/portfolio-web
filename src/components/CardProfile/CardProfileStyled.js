@@ -104,7 +104,7 @@ export const Name = styled.div`
   }
 
   @media (max-width: ${MOBILE}) {
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 5px;
   }
 `;
@@ -122,7 +122,7 @@ export const Bio = styled.div`
   }
 
   @media (max-width: ${MOBILE}) {
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 5px;
   }
 `;
@@ -130,7 +130,7 @@ export const Bio = styled.div`
 export const SeeSkills = styled.div`
   display: none;
   color: ${({ theme }) => theme.primaryText};
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   margin: 5px 0px;
   cursor: pointer;
