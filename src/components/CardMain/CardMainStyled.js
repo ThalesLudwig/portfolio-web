@@ -16,7 +16,7 @@ export const Container = styled.div`
 
   @media (max-width: ${MOBILE}) {
     border-radius: 0px;
-    margin-top: 80px;
+    margin-top: 90px;
     height: calc(100vh - 250px);
   }
 `;
