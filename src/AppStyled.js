@@ -93,7 +93,7 @@ export const Chat = styled(ScrollToBottom)`
   padding: 10px;
   height: 500px;
 
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   -ms-overflow-style: none;
   scrollbar-width: none;
 
@@ -102,9 +102,7 @@ export const Chat = styled(ScrollToBottom)`
   }
 
   @media (max-width: ${MOBILE}) {
-    height: calc(100vh - 320px);
-    position: fixed;
-    top: 0px;
+    height: calc(100vh - 310px);
   }
 `;
 
