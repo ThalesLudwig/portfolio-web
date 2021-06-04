@@ -11,6 +11,7 @@ import {
   MobileImage,
   ContentWrapper,
   SeeSkills,
+  MobileBio,
 } from "./CardProfileStyled";
 
 const CardProfile = () => {
@@ -19,7 +20,7 @@ const CardProfile = () => {
 
   return (
     <BackgroundImage>
-      <Container>
+      <Container hasShadow={isShowingSkills}>
         <ContentWrapper>
           <Pills shouldDisplay={isShowingSkills}>
             <Pill key="js" text="Javascript" isPrimary />
@@ -29,6 +30,7 @@ const CardProfile = () => {
             <Pill key="angular" text="Angular" isPrimary />
             <Pill key="react-native" text="React Native" isPrimary />
           </Pills>
+          
           <SeeSkills onClick={() => setIsShowingSkills(!isShowingSkills)}>
             {formatMessage(
               isShowingSkills
@@ -36,6 +38,9 @@ const CardProfile = () => {
                 : localization.showSkills
             )}
           </SeeSkills>
+          <MobileBio shouldDisplay>
+            {formatMessage(localization.descriptionShort)}
+          </MobileBio>
           <Bio>{formatMessage(localization.description)}</Bio>
           <Name>Thales Valentini</Name>
         </ContentWrapper>

@@ -86,6 +86,7 @@ export const SuggestionsWrapper = styled.div`
 `;
 
 export const Chat = styled(ScrollToBottom)`
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -101,7 +102,9 @@ export const Chat = styled(ScrollToBottom)`
   }
 
   @media (max-width: ${MOBILE}) {
-    height: calc(100vh - 380px);
+    height: calc(100vh - 320px);
+    position: fixed;
+    top: 0px;
   }
 `;
 
@@ -133,7 +136,7 @@ export const SuggestionsInputWrapper = styled.div`
 
   @media (max-width: ${MOBILE}) {
     position: fixed;
-    bottom: 82px;
+    bottom: 50px;
     left: 0;
     right: 0;
     padding: 10px;

@@ -24,7 +24,13 @@ export const Container = styled.div`
   @media (max-width: ${MOBILE}) {
     border-radius: 0px;
     padding: 10px;
+    justify-content: flex-end;
     background-image: none;
+    align-items: flex-start;
+    -webkit-box-shadow: ${({ hasShadow }) =>
+      hasShadow ? "0px 0px 15px -4px rgba(0,0,0,0.87)" : "none"};
+    box-shadow: ${({ hasShadow }) =>
+      hasShadow ? "0px 0px 15px -4px rgba(0,0,0,0.87)" : "none"};
   }
 `;
 
@@ -57,6 +63,10 @@ export const BackgroundImage = styled.div`
   @media (max-width: ${MOBILE}) {
     border-radius: 0px;
     border-bottom: ${({ theme }) => `2px solid ${theme.background}`};
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 `;
 
@@ -106,7 +116,7 @@ export const Name = styled.div`
 
   @media (max-width: ${MOBILE}) {
     font-size: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -123,21 +133,32 @@ export const Bio = styled.div`
   }
 
   @media (max-width: ${MOBILE}) {
-    font-size: 12px;
-    margin-bottom: 5px;
+    display: none;
+  }
+`;
+
+export const MobileBio = styled.div`
+  color: ${({ theme }) => theme.text};
+  font-weight: 300;
+  font-size: 12px;
+  text-align: left;
+  display: ${({ shouldDisplay }) => (shouldDisplay ? "flex" : "none")};
+
+  @media (min-width: ${MOBILE}) {
+    display: none;
   }
 `;
 
 export const SeeSkills = styled.div`
-  display: none;
+  display: flex;
   color: ${({ theme }) => theme.primaryText};
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   margin: 5px 0px;
   cursor: pointer;
 
-  @media (max-width: ${MOBILE}) {
-    display: flex;
+  @media (min-width: ${MOBILE}) {
+    display: none;
   }
 `;
 

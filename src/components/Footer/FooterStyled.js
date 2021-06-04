@@ -11,6 +11,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: ${MOBILE}) {
+    padding: 0px;
+  }
 `;
 
 export const Label = styled.div`
@@ -25,6 +29,13 @@ export const Label = styled.div`
   @media (max-width: ${TABLET}) {
     margin: 10px;
     justify-content: center;
+  }
+
+  @media (max-width: ${MOBILE}) {
+    margin: 0px;
+    margin-left: 10px;
+    width: unset;
+    justify-content: unset;
   }
 `;
 
@@ -69,7 +80,7 @@ export const Link = styled.a`
   text-decoration: none;
   display: flex;
   align-items: center;
-`
+`;
 
 export const SocialIcon = styled.div`
   background: ${({ theme }) => theme.card};
@@ -79,4 +90,10 @@ export const SocialIcon = styled.div`
   height: 35px;
   border-radius: 50%;
   margin-right: 10px;
+
+  @media (max-width: ${MOBILE}) {
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+  }
 `;

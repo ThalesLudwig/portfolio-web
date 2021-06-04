@@ -18,6 +18,6 @@ export const PT_BR = {
   "greeting.first": "Olá, seja bem-vindo!",
   "greeting.second": "Você está conversando com uma versão (beta) automatizada de mim. Legal, não é?",
   "greeting.third": "Pode me entrevistar como se eu fosse humano! :)",
-  "profile.skills.show": "Mostrar habilidades",
-  "profile.skills.hide": "Esconder habilidades",
+  "profile.skills.show": "Mostrar mais",
+  "profile.skills.hide": "Mostrar menos",
 };
