@@ -103,6 +103,7 @@ export const Chat = styled(ScrollToBottom)`
 
   @media (max-width: ${MOBILE}) {
     height: calc(100vh - 310px);
+    height: calc(var(--vh, 1vh) * 100 - 310px);
   }
 `;
 

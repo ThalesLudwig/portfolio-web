@@ -18,5 +18,6 @@ export const Container = styled.div`
     border-radius: 0px;
     margin-top: 90px;
     height: calc(100vh - 250px);
+    height: calc(var(--vh, 1vh) * 100 - 250px);
   }
 `;
