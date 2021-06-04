@@ -19,5 +19,6 @@ export const Container = styled.div`
     margin-top: 90px;
     height: calc(100vh - 250px);
     height: calc(var(--vh, 1vh) * 100 - 250px);
+    height: calc(-webkit-fill-available - 250px);
   }
 `;
